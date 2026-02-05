@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "OpenClaw plugin for social media scheduling with dstask - like Buffer but better",
   "main": "dist/index.js",
+  "files": [
+    "dist",
+    "openclaw.plugin.json"
+  ],
   "type": "module",
   "scripts": {
     "build": "tsc",
