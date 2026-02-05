@@ -1,4 +1,4 @@
-import { readFileSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import { homedir } from 'os';
 
@@ -26,12 +26,15 @@ export function loadCookies(): CookieStore {
   if (cookieCache) return cookieCache;
   
   try {
-    const cookiePath = join(homedir(), 'clawd', 'cookies', 'cookies-for-browser.json');
+    const newCookiePath = join(homedir(), 'openclaw', 'cookies', 'cookies-for-browser.json');
+    // Backward compat: fall back to old 'clawd' path if new path does not exist
+    const legacyCookiePath = join(homedir(), 'clawd', 'cookies', 'cookies-for-browser.json');
+    const cookiePath = existsSync(newCookiePath) ? newCookiePath : legacyCookiePath;
     const cookieData = readFileSync(cookiePath, 'utf8');
     cookieCache = JSON.parse(cookieData) as CookieStore;
     return cookieCache!;
   } catch (error) {
-    console.warn('⚠️  Could not load cookies:', error);
+    console.warn('Could not load cookies:', error);
     return {};
   }
 }

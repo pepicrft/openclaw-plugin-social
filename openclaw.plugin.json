@@ -1,0 +1,29 @@
+{
+  "id": "openclaw-plugin-social",
+  "name": "OpenClaw Social",
+  "description": "OpenClaw plugin for social media scheduling with dstask",
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "platforms": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": ["twitter", "linkedin", "mastodon", "bluesky"]
+        },
+        "description": "Default platforms to post to"
+      },
+      "cookiePath": {
+        "type": "string",
+        "description": "Path to the browser cookies JSON file (defaults to ~/openclaw/cookies/cookies-for-browser.json)"
+      }
+    }
+  },
+  "uiHints": {
+    "category": "social",
+    "icon": "share",
+    "commands": ["social"]
+  },
+  "version": "1.0.0",
+  "repository": "github:pepicrft/openclaw-plugin-social"
+}

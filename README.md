@@ -1,25 +1,25 @@
-# 📱 Clawdbot Social Scheduler
+# OpenClaw Social Scheduler
 
-[![CI](https://github.com/pepicrft/clawd-plugin-social/actions/workflows/ci.yml/badge.svg)](https://github.com/pepicrft/clawd-plugin-social/actions/workflows/ci.yml)
+[![CI](https://github.com/pepicrft/openclaw-plugin-social/actions/workflows/ci.yml/badge.svg)](https://github.com/pepicrft/openclaw-plugin-social/actions/workflows/ci.yml)
 
-A powerful Clawdbot plugin for social media scheduling using dstask. Like Buffer, but open-source and better integrated with your workflow. **Publishes posts automatically using browser automation!**
+A powerful OpenClaw plugin for social media scheduling using dstask. Like Buffer, but open-source and better integrated with your workflow. **Publishes posts automatically using browser automation!**
 
-## ✨ Features
+## Features
 
-- 📝 **Multi-platform support**: Twitter/X, LinkedIn, Mastodon, Bluesky
-- 📅 **Flexible scheduling**: Schedule posts for specific times
-- 🤖 **Browser automation**: Actually publishes posts using Clawdbot's browser tool
-- 💾 **Draft management**: Save and organize drafts
-- 🎯 **Campaign tracking**: Group posts by campaign/series
-- 🔄 **Smart filtering**: Filter by platform, status, or campaign
-- ⏰ **Upcoming view**: See what's publishing soon
-- 🔀 **Status management**: draft → scheduled → published
-- 🗂️ **Git-backed**: Version control for all your posts
-- 🔍 **Searchable**: Find posts by content or metadata
-- 🎨 **Priority support**: Urgent, high, normal, low priorities
-- 🚀 **Intelligent dstask execution**: Uses mise if available, falls back to direct dstask
+- **Multi-platform support**: Twitter/X, LinkedIn, Mastodon, Bluesky
+- **Flexible scheduling**: Schedule posts for specific times
+- **Browser automation**: Actually publishes posts using OpenClaw's browser tool
+- **Draft management**: Save and organize drafts
+- **Campaign tracking**: Group posts by campaign/series
+- **Smart filtering**: Filter by platform, status, or campaign
+- **Upcoming view**: See what's publishing soon
+- **Status management**: draft -> scheduled -> published
+- **Git-backed**: Version control for all your posts
+- **Searchable**: Find posts by content or metadata
+- **Priority support**: Urgent, high, normal, low priorities
+- **Intelligent dstask execution**: Uses mise if available, falls back to direct dstask
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 
@@ -40,61 +40,61 @@ go install github.com/naggie/dstask/cmd/dstask@latest
 ### Install the Plugin
 
 ```bash
-clawdbot plugins install clawd-plugin-social
+openclaw plugins install openclaw-plugin-social
 ```
 
 Or from GitHub:
 ```bash
-clawdbot plugins install github:pepicrft/clawd-plugin-social
+openclaw plugins install github:pepicrft/openclaw-plugin-social
 ```
 
-## 🚀 Usage
+## Usage
 
-### 💻 CLI Commands
+### CLI Commands
 
 ```bash
 # Create a draft post
-clawdbot social draft "Check out my new blog post!" \
+openclaw social draft "Check out my new blog post!" \
   --platforms twitter,linkedin \
   --campaign "blog-promotion"
 
 # Schedule a post
-clawdbot social schedule 42 2026-01-15T14:00
+openclaw social schedule 42 2026-01-15T14:00
 
 # Publish immediately (uses browser automation!)
-clawdbot social publish 42
+openclaw social publish 42
 
 # List drafts
-clawdbot social list draft
+openclaw social list draft
 
 # List scheduled posts
-clawdbot social list scheduled
+openclaw social list scheduled
 
 # Filter by platform
-clawdbot social list --platform twitter
+openclaw social list --platform twitter
 
 # Filter by campaign
-clawdbot social list --campaign "blog-promotion"
+openclaw social list --campaign "blog-promotion"
 
 # See upcoming posts (next 24 hours)
-clawdbot social upcoming
+openclaw social upcoming
 
 # See posts for next 48 hours
-clawdbot social upcoming 48
+openclaw social upcoming 48
 
 # Cancel a scheduled post
-clawdbot social cancel 42
+openclaw social cancel 42
 
 # Delete a post
-clawdbot social delete 42
+openclaw social delete 42
 ```
 
-### 🤖 Tool (for Claude)
+### Tool (for Claude)
 
 Claude can manage your social media schedule and publish posts:
 
 ```
-Create a draft tweet: "Just shipped a new feature! 🚀"
+Create a draft tweet: "Just shipped a new feature!"
 ```
 
 ```
@@ -113,7 +113,7 @@ What's scheduled for the next 24 hours?
 Show me all my LinkedIn drafts
 ```
 
-### 🌐 Gateway RPC
+### Gateway RPC
 
 ```bash
 # Create draft
@@ -159,9 +159,9 @@ curl -X POST http://localhost:3000/api/gateway/rpc \
   }'
 ```
 
-## 🤖 Browser Automation
+## Browser Automation
 
-The plugin uses Clawdbot's browser tool to actually post content to social media platforms:
+The plugin uses OpenClaw's browser tool to actually post content to social media platforms:
 
 ### How It Works
 1. When you run `publish`, the plugin opens the platform in a browser
@@ -171,24 +171,24 @@ The plugin uses Clawdbot's browser tool to actually post content to social media
 5. Updates the post status to "published" in dstask
 
 ### Supported Platforms
-- ✅ **Twitter/X**: Opens compose, types content, clicks post
-- ✅ **LinkedIn**: Opens feed, starts post, types content, publishes
-- ✅ **Bluesky**: Opens app, composes post, publishes
-- ⚠️ **Mastodon**: Requires instance configuration (coming soon)
+- **Twitter/X**: Opens compose, types content, clicks post
+- **LinkedIn**: Opens feed, starts post, types content, publishes
+- **Bluesky**: Opens app, composes post, publishes
+- **Mastodon**: Requires instance configuration (coming soon)
 
 ### Requirements
-- Clawdbot browser tool must be available
+- OpenClaw browser tool must be available
 - You must be logged into the platforms in your browser
 - Browser automation may require adjusting selectors if platforms change their UI
 
-## 📋 Requirements
+## Requirements
 
 - [dstask](https://github.com/naggie/dstask) must be installed
-- 💡 **Tip:** Use `mise use -g go:github.com/naggie/dstask/cmd/dstask@latest` for hassle-free installation!
+- **Tip:** Use `mise use -g go:github.com/naggie/dstask/cmd/dstask@latest` for hassle-free installation!
 - The plugin automatically detects mise and uses it if available
-- Clawdbot browser tool must be available for publishing
+- OpenClaw browser tool must be available for publishing
 
-## 🔧 How It Works
+## How It Works
 
 This plugin uses dstask with a smart tagging system:
 
@@ -210,49 +210,49 @@ The plugin checks for mise availability at runtime:
 - Otherwise: `dstask` (direct execution)
 
 ### Benefits
-- 💾 **Persistent** across sessions
-- 🔍 **Searchable** with dstask's query features
-- 🔄 **Integrated** with your existing workflow
-- 🗂️ **Git-backed** for version control
-- 🎨 **Extensible** with custom tags
-- 🤖 **Actually publishes** using browser automation!
+- **Persistent** across sessions
+- **Searchable** with dstask's query features
+- **Integrated** with your existing workflow
+- **Git-backed** for version control
+- **Extensible** with custom tags
+- **Actually publishes** using browser automation!
 
-## 🎯 Workflow Examples
+## Workflow Examples
 
 ### Basic Posting with Automation
 ```bash
 # Create draft
-clawdbot social draft "Exciting news!" --platforms twitter
+openclaw social draft "Exciting news!" --platforms twitter
 
 # Review and schedule
-clawdbot social list draft
-clawdbot social schedule 1 2026-01-15T14:00
+openclaw social list draft
+openclaw social schedule 1 2026-01-15T14:00
 
 # Publish immediately (browser automation)
-clawdbot social publish 1
+openclaw social publish 1
 ```
 
 ### Campaign Management
 ```bash
 # Create posts for a campaign
-clawdbot social draft "Post 1" --campaign "launch-week" --platforms twitter,linkedin
-clawdbot social draft "Post 2" --campaign "launch-week" --platforms twitter,linkedin
+openclaw social draft "Post 1" --campaign "launch-week" --platforms twitter,linkedin
+openclaw social draft "Post 2" --campaign "launch-week" --platforms twitter,linkedin
 
 # Schedule them
-clawdbot social list draft --campaign "launch-week"
-clawdbot social schedule 1 2026-01-15T09:00
-clawdbot social schedule 2 2026-01-15T15:00
+openclaw social list draft --campaign "launch-week"
+openclaw social schedule 1 2026-01-15T09:00
+openclaw social schedule 2 2026-01-15T15:00
 
 # Or publish immediately
-clawdbot social publish 1
+openclaw social publish 1
 ```
 
-## 🛠️ Development
+## Development
 
 ```bash
 # Clone the repo
-git clone https://github.com/pepicrft/clawd-plugin-social.git
-cd clawd-plugin-social
+git clone https://github.com/pepicrft/openclaw-plugin-social.git
+cd openclaw-plugin-social
 
 # Install dependencies
 npm install
@@ -267,36 +267,36 @@ npm test
 npm run test:watch
 ```
 
-### 🧪 Testing
+### Testing
 
 This plugin uses [Vitest](https://vitest.dev/) for testing. The test suite includes:
 
-- ✅ Plugin registration tests
-- ✅ Tool handler validation tests (15+ test cases)
-- ✅ Input schema validation tests
-- ✅ Multi-platform support tests
-- ✅ CI pipeline that runs on every commit
+- Plugin registration tests
+- Tool handler validation tests (15+ test cases)
+- Input schema validation tests
+- Multi-platform support tests
+- CI pipeline that runs on every commit
 
 CI runs tests on Node.js 20.x and 22.x to ensure compatibility.
 
-## 🚀 Future Enhancements
+## Future Enhancements
 
 Potential additions:
-- 🧵 Thread support (Twitter/X threads, LinkedIn carousels)
-- 🖼️ Media attachment uploading
-- 🔄 Recurring post templates
-- 📊 Analytics integration
-- 🤖 Auto-publishing daemon (check upcoming and publish automatically)
-- 📱 Better error handling for browser automation
-- 🔐 OAuth integration for API-based posting
+- Thread support (Twitter/X threads, LinkedIn carousels)
+- Media attachment uploading
+- Recurring post templates
+- Analytics integration
+- Auto-publishing daemon (check upcoming and publish automatically)
+- Better error handling for browser automation
+- OAuth integration for API-based posting
 
-## 📄 License
+## License
 
-MIT © Pedro Piñera
+MIT (c) Pedro Pinera
 
-## 🔗 Links
+## Links
 
-- 🏠 [Repository](https://github.com/pepicrft/clawd-plugin-social)
-- 📚 [Clawdbot Plugin Docs](https://docs.clawd.bot/plugin)
-- 🛠️ [dstask](https://github.com/naggie/dstask)
-- 🔧 [Similar plugin: clawd-plugin-grocery](https://github.com/pepicrft/clawd-plugin-grocery)
+- [Repository](https://github.com/pepicrft/openclaw-plugin-social)
+- [OpenClaw Plugin Docs](https://docs.openclaw.ai/plugin)
+- [dstask](https://github.com/naggie/dstask)
+- [Similar plugin: openclaw-plugin-grocery](https://github.com/pepicrft/openclaw-plugin-grocery)

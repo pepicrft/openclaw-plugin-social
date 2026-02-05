@@ -1,7 +1,7 @@
 {
-  "name": "clawd-plugin-social",
+  "name": "openclaw-plugin-social",
   "version": "1.0.0",
-  "description": "Clawdbot plugin for social media scheduling with dstask - like Buffer but better",
+  "description": "OpenClaw plugin for social media scheduling with dstask - like Buffer but better",
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
@@ -11,7 +11,7 @@
     "test:ui": "vitest --ui"
   },
   "keywords": [
-    "clawdbot",
+    "openclaw",
     "plugin",
     "social",
     "scheduling",
@@ -30,7 +30,10 @@
     "typescript": "^5.0.0",
     "vitest": "^2.1.8"
   },
-  "clawdbot": {
+  "peerDependencies": {
+    "openclaw": ">=2026.1.26"
+  },
+  "openclaw": {
     "extensions": [
       "dist/index.js"
     ]
