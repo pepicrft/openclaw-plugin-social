@@ -448,7 +448,7 @@ export default function (api: any) {
   api.registerTool({
     name: "social_scheduler",
     description: "Manage social media posts across multiple platforms. Automatically loads cookies from ~/openclaw/cookies/ for authentication. Create drafts, schedule posts, publish immediately via browser automation, and track your social media pipeline.",
-    input_schema: {
+    parameters: {
       type: "object",
       properties: {
         action: {
