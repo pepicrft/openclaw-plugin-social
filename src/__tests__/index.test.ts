@@ -37,7 +37,7 @@ describe('Social Scheduler Plugin', () => {
       
       expect(mockApi.registerTool).toHaveBeenCalled();
       expect(registeredTool.name).toBe('social_scheduler');
-      expect(registeredTool.input_schema.properties.action.enum).toEqual([
+      expect(registeredTool.parameters.properties.action.enum).toEqual([
         'draft',
         'schedule',
         'publish',
@@ -191,7 +191,7 @@ describe('Social Scheduler Plugin', () => {
     });
 
     it('should have correct action enum', () => {
-      expect(registeredTool.input_schema.properties.action.enum).toEqual([
+      expect(registeredTool.parameters.properties.action.enum).toEqual([
         'draft',
         'schedule',
         'publish',
@@ -203,9 +203,9 @@ describe('Social Scheduler Plugin', () => {
     });
 
     it('should have platforms array', () => {
-      expect(registeredTool.input_schema.properties.platforms).toBeDefined();
-      expect(registeredTool.input_schema.properties.platforms.type).toBe('array');
-      expect(registeredTool.input_schema.properties.platforms.items.enum).toEqual([
+      expect(registeredTool.parameters.properties.platforms).toBeDefined();
+      expect(registeredTool.parameters.properties.platforms.type).toBe('array');
+      expect(registeredTool.parameters.properties.platforms.items.enum).toEqual([
         'twitter',
         'linkedin',
         'mastodon',
@@ -214,18 +214,18 @@ describe('Social Scheduler Plugin', () => {
     });
 
     it('should have content parameter', () => {
-      expect(registeredTool.input_schema.properties.content).toBeDefined();
-      expect(registeredTool.input_schema.properties.content.type).toBe('string');
+      expect(registeredTool.parameters.properties.content).toBeDefined();
+      expect(registeredTool.parameters.properties.content.type).toBe('string');
     });
 
     it('should have date parameter', () => {
-      expect(registeredTool.input_schema.properties.date).toBeDefined();
-      expect(registeredTool.input_schema.properties.date.type).toBe('string');
+      expect(registeredTool.parameters.properties.date).toBeDefined();
+      expect(registeredTool.parameters.properties.date.type).toBe('string');
     });
 
     it('should have status parameter with correct enum', () => {
-      expect(registeredTool.input_schema.properties.status).toBeDefined();
-      expect(registeredTool.input_schema.properties.status.enum).toEqual([
+      expect(registeredTool.parameters.properties.status).toBeDefined();
+      expect(registeredTool.parameters.properties.status.enum).toEqual([
         'draft',
         'scheduled',
         'published',
@@ -233,12 +233,12 @@ describe('Social Scheduler Plugin', () => {
     });
 
     it('should have campaign parameter', () => {
-      expect(registeredTool.input_schema.properties.campaign).toBeDefined();
-      expect(registeredTool.input_schema.properties.campaign.type).toBe('string');
+      expect(registeredTool.parameters.properties.campaign).toBeDefined();
+      expect(registeredTool.parameters.properties.campaign.type).toBe('string');
     });
 
     it('should require only action parameter', () => {
-      expect(registeredTool.input_schema.required).toEqual(['action']);
+      expect(registeredTool.parameters.required).toEqual(['action']);
     });
   });
 
