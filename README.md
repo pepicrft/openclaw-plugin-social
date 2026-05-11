@@ -181,6 +181,20 @@ The plugin uses OpenClaw's browser tool to actually post content to social media
 - You must be logged into the platforms in your browser
 - Browser automation may require adjusting selectors if platforms change their UI
 
+## Related X/Twitter API Workflows
+
+Use this plugin when you need draft storage, scheduling, campaign tracking, and browser-based publishing across social platforms.
+
+For API-backed X/Twitter workflows inside OpenClaw, [TweetClaw](https://github.com/Xquik-dev/tweetclaw) is a companion plugin. It covers search tweets, search tweet replies, post tweets, post tweet replies, follower export, user lookup, media upload, media download, direct messages, account monitoring, webhooks, and giveaway draws.
+
+```bash
+openclaw plugins install @xquik/tweetclaw
+```
+
+Useful links:
+- npm: https://www.npmjs.com/package/@xquik/tweetclaw
+- ClawHub: https://clawhub.ai/kriptoburak/xquik-tweetclaw
+
 ## Requirements
 
 - [dstask](https://github.com/naggie/dstask) must be installed
